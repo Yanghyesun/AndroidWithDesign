@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/menu_home"
+        android:icon="@drawable/restaurant_icon"
+        android:title="맛집찾기" />
+    <item android:id="@+id/menu_book"
+        android:icon="@drawable/review_icon"
+        android:title="리뷰쓰기"/>
+    <item android:id="@+id/menu_person"
+        android:icon="@drawable/mango_icon"
+        android:title="망고픽"/>
+</menu>
