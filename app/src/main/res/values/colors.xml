@@ -3,4 +3,15 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+
+
+    <color name="colorNameandRank">#1c1c1c</color>
+
+    <color name="colorUnder4">#7f7f7f</color>
+    <color name="colorOver4">#ee792f</color>
+
+    <color name="orderbyunselected">#707070</color>
+    <color name="orderbyselected">#ee792f</color>
+
+
 </resources>

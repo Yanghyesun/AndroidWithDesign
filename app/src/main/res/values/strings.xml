@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">AndroidWithDesign</string>
+
+
+    <string name="orderbyrate">평점순</string>
+    <string name="orderbydistance">거리순</string>
+    <string name="orderbyreview">리뷰순</string>
+
+    <string name="rankandname">%d. %s</string>
+
 </resources>
