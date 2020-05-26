@@ -12,8 +12,9 @@ import com.bumptech.glide.Glide
 
 const val MIN_NUM = 30
 
-class recyclerShopAdapter(private val context: Context) :
+class recyclerShopAdapter(private val context: Context, private val standardx : Int) :
     RecyclerView.Adapter<recyclerShopAdapter.VHolder>() {
+
 
     private val shopList = mutableListOf<ShopData>()
 
@@ -43,7 +44,8 @@ class recyclerShopAdapter(private val context: Context) :
     }
 
     override fun onBindViewHolder(holder: VHolder, position: Int) {
-        holder.setHolder(shopList[position], position, context)
+        holder.setHolder(shopList[position], position, context, standardx)
+
     }
 
 
@@ -58,7 +60,13 @@ class recyclerShopAdapter(private val context: Context) :
         private val rate = itemView.findViewById<TextView>(R.id.tv_rate)
         private val eatdeal = itemView.findViewById<ImageView>(R.id.iv_eatdeal)
 
-        fun setHolder(item: ShopData, position: Int, context: Context) {
+        fun setHolder(item: ShopData, position: Int, context: Context, standardx: Int) {
+
+
+            val layoutParams = itemView.layoutParams
+            layoutParams.width = (standardx* 0.433).toInt()
+            layoutParams.height = (standardx*0.563).toInt()
+
             Glide.with(itemView).load(item.Image).error(R.drawable.ic_launcher_background)
                 .into(shopImage)
             scrapimage.isSelected = item.scrap
@@ -98,7 +106,7 @@ class recyclerShopAdapter(private val context: Context) :
             if (distance > 1000){
                 return (distance/1000).toString()+"km"
             } else {
-                return distance.toString()+"m"
+                return distance.toInt().toString()+"m"
             }
         }
     }

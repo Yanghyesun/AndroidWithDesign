@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".RestaurantFragment">
 
-
     <TextView
         android:id="@+id/tv_orderbyrate"
         android:layout_width="wrap_content"
@@ -18,8 +17,7 @@
         android:layout_marginRight="1dp"
         android:layout_marginBottom="2dp"
         android:fontFamily="@font/applesdgothicneor"
-        android:paddingStart="5dp"
-        android:paddingLeft="5dp"
+
         android:paddingTop="10dp"
         android:paddingEnd="5dp"
         android:paddingRight="5dp"

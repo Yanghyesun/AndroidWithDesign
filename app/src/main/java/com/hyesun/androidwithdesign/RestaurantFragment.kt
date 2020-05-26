@@ -1,10 +1,12 @@
 package com.hyesun.androidwithdesign
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.fragment_restaurant.*
@@ -19,7 +21,8 @@ const val ORDERBYREVIEW = 3
 
 class RestaurantFragment : Fragment() {
 
-    private val rvAdapter by lazy { recyclerShopAdapter(requireContext())}
+
+    private val rvAdapter by lazy {recyclerShopAdapter(requireContext(),getX())}
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,6 +34,9 @@ class RestaurantFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        setUI()
+
 
         val data = mutableListOf<ShopData>()
         data.apply {
@@ -48,7 +54,7 @@ class RestaurantFragment : Fragment() {
         }
 
         rv_shop.layoutManager = GridLayoutManager(context, 2, RecyclerView.VERTICAL, false)
-        rv_shop.addItemDecoration(ShopItemDecoration())
+        rv_shop.addItemDecoration(ShopItemDecoration(getX()))
         rv_shop.adapter = rvAdapter
         rv_shop.clipToPadding = true
 
@@ -92,6 +98,25 @@ class RestaurantFragment : Fragment() {
             ORDERBYDISTANCE -> sortBy { it.distance }
             ORDERBYREVIEW -> sortByDescending { it.num_review }
         }
+    }
+
+    fun setUI(){
+        val devicex = getX()
+
+//      dp로 넣으려면 setTextSize(TypedValue.COMPLEX_UNIT_DIP, 숫자)
+        val lp_tv_orderbyrate = tv_orderbyrate.layoutParams as ConstraintLayout.LayoutParams
+        lp_tv_orderbyrate.leftMargin = (devicex*0.044).toInt()
+        tv_orderbyrate.layoutParams = lp_tv_orderbyrate
+        val lp_btn_mylocation = btn_mylocation.layoutParams as ConstraintLayout.LayoutParams
+        lp_btn_mylocation.rightMargin = (devicex*0.044).toInt()
+        btn_mylocation.layoutParams = lp_btn_mylocation
+    }
+
+    fun getX() : Int{
+        val display = activity!!.windowManager.defaultDisplay
+        val displayMetrics = DisplayMetrics()
+        display.getMetrics(displayMetrics)
+        return displayMetrics.widthPixels
     }
 
 
