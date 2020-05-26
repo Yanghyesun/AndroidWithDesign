@@ -3,22 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="203dp"
-    android:gravity="center"
-    android:layout_centerHorizontal="true">
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:gravity="center">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_shop"
         android:layout_width="156dp"
-        android:layout_height="203dp"
-        >
+        android:layout_height="203dp">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/gl_1"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.74" />
+            app:layout_constraintGuide_percent="0.7389163" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/gl_2"
@@ -38,11 +37,13 @@
 
         <ImageView
             android:id="@+id/iv_scrap"
-            android:layout_width="44dp"
-            android:layout_height="43dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:background="@drawable/selector_scrap"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/iv_shop" />
+            app:layout_constraintHeight_percent="0.211"
+            app:layout_constraintTop_toTopOf="@+id/iv_shop"
+            app:layout_constraintWidth_percent="0.282" />
 
         <ImageView
             android:id="@+id/iv_eatdeal"
@@ -60,10 +61,12 @@
             android:layout_marginStart="1dp"
             android:layout_marginLeft="1dp"
             android:layout_marginTop="2dp"
-            android:lineSpacingExtra="5sp"
-            android:textSize="15sp"
+            android:ellipsize="end"
             android:fontFamily="@font/applesdgothicneosb"
+            android:lineSpacingExtra="5sp"
+            android:maxLines="1"
             android:textColor="@color/colorNameandRank"
+            android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="@id/gl_2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/gl_1" />
@@ -75,9 +78,9 @@
             android:layout_marginStart="1dp"
             android:layout_marginLeft="1dp"
             android:layout_marginTop="1dp"
+            android:fontFamily="@font/applesdgothicneor"
             android:lineSpacingExtra="3sp"
             android:textSize="10sp"
-            android:fontFamily="@font/applesdgothicneor"
             app:layout_constraintStart_toStartOf="@id/tv_rankandname"
             app:layout_constraintTop_toBottomOf="@id/tv_rankandname" />
 
@@ -87,9 +90,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="3dp"
             android:layout_marginLeft="3dp"
+            android:fontFamily="@font/applesdgothicneor"
             android:lineSpacingExtra="3sp"
             android:textSize="10sp"
-            android:fontFamily="@font/applesdgothicneor"
             app:layout_constraintBottom_toBottomOf="@id/tv_location"
             app:layout_constraintStart_toEndOf="@id/tv_location"
             app:layout_constraintTop_toTopOf="@id/tv_location" />
@@ -98,10 +101,11 @@
             android:id="@+id/tv_menu"
             android:layout_width="0dp"
             android:layout_height="12dp"
-            android:lineSpacingExtra="3sp"
-            android:textSize="10sp"
+            android:ellipsize="end"
             android:fontFamily="@font/applesdgothicneor"
-
+            android:lineSpacingExtra="3sp"
+            android:maxLines="1"
+            android:textSize="10sp"
             app:layout_constraintEnd_toStartOf="@id/gl_2"
             app:layout_constraintStart_toStartOf="@id/tv_location"
             app:layout_constraintTop_toBottomOf="@id/tv_location" />

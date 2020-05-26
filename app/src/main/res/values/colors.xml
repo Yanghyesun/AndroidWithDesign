@@ -13,5 +13,7 @@
     <color name="orderbyunselected">#707070</color>
     <color name="orderbyselected">#ee792f</color>
 
+    <color name="colorDeviderHorizontal">#e8e8e8</color>
+
 
 </resources>
