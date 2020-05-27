@@ -5,116 +5,223 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RestaurantFragment">
-
-    <TextView
-        android:id="@+id/tv_orderbyrate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="11dp"
-        android:layout_marginLeft="11dp"
-        android:layout_marginTop="3dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginRight="1dp"
-        android:layout_marginBottom="2dp"
-        android:fontFamily="@font/applesdgothicneor"
-
-        android:paddingTop="10dp"
-        android:paddingEnd="5dp"
-        android:paddingRight="5dp"
-        android:paddingBottom="9dp"
-        android:text="@string/orderbyrate"
-        android:textColor="@color/selector_orderby"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <View
-        android:id="@+id/devider_1"
-        android:layout_width="1dp"
-        android:layout_height="7dp"
-        android:background="@color/orderbyunselected"
-        app:layout_constraintBottom_toBottomOf="@id/tv_orderbyrate"
-        app:layout_constraintStart_toEndOf="@id/tv_orderbyrate"
-        app:layout_constraintTop_toTopOf="@id/tv_orderbyrate" />
-
-    <TextView
-        android:id="@+id/tv_orderbydistance"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginLeft="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginRight="1dp"
-        android:fontFamily="@font/applesdgothicneor"
-        android:paddingStart="5dp"
-        android:paddingLeft="5dp"
-        android:paddingTop="10dp"
-        android:paddingEnd="6dp"
-        android:paddingRight="6dp"
-        android:paddingBottom="9dp"
-        android:text="@string/orderbydistance"
-        android:textColor="@color/selector_orderby"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@id/tv_orderbyrate"
-        app:layout_constraintStart_toEndOf="@id/devider_1"
-        app:layout_constraintTop_toTopOf="@id/tv_orderbyrate" />
-
-    <View
-        android:id="@+id/devider_2"
-        android:layout_width="1dp"
-        android:layout_height="7dp"
-        android:background="@color/orderbyunselected"
-        app:layout_constraintBottom_toBottomOf="@id/tv_orderbyrate"
-        app:layout_constraintStart_toEndOf="@id/tv_orderbydistance"
-        app:layout_constraintTop_toTopOf="@id/tv_orderbyrate" />
-
-    <TextView
-        android:id="@+id/tv_orderbyreview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginLeft="1dp"
-        android:fontFamily="@font/applesdgothicneor"
-        android:paddingStart="5dp"
-        android:paddingLeft="5dp"
-        android:paddingTop="10dp"
-        android:paddingEnd="6dp"
-        android:paddingRight="6dp"
-        android:paddingBottom="9dp"
-        android:text="@string/orderbyreview"
-        android:textColor="@color/selector_orderby"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@id/tv_orderbyrate"
-        app:layout_constraintStart_toEndOf="@id/devider_2"
-        app:layout_constraintTop_toTopOf="@id/tv_orderbyrate" />
-
-
-    <Button
-        android:id="@+id/btn_mylocation"
-        android:layout_width="58dp"
-        android:layout_height="29dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:background="@drawable/an_my_local_btn"
-        app:layout_constraintBottom_toBottomOf="@id/tv_orderbyrate"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tv_orderbyrate" />
-
-
-    <View
-        android:id="@+id/devider_3"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_marginTop="41dp"
-        android:background="@color/colorDeviderHorizontal"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="56dp"
+        android:background="@color/colorGrey"
+        app:layout_constraintTop_toTopOf="parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_shop"
+            <ImageView
+                android:id="@+id/img_btn_home_my_page"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/an_mypage_btn" />
+
+            <TextView
+                android:id="@+id/txt_home_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="지금 보고 있는 지역은"
+                android:textColor="@color/colorNameandRank"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toTopOf="@+id/textView"
+                app:layout_constraintEnd_toStartOf="@+id/img_btn_home_search"
+                app:layout_constraintStart_toEndOf="@+id/img_btn_home_my_page"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="하남시"
+                android:textColor="@color/colorNameandRank"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/img_btn_home_more"
+                app:layout_constraintStart_toEndOf="@+id/img_btn_home_my_page"
+                app:layout_constraintTop_toBottomOf="@id/txt_home_title"
+                app:layout_constraintHorizontal_chainStyle="packed"/>
+
+            <ImageView
+                android:id="@+id/img_btn_home_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/an_searching_btn" />
+
+            <ImageView
+                android:id="@+id/img_btn_home_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/textView"
+                app:layout_constraintEnd_toStartOf="@+id/img_btn_home_search"
+                app:layout_constraintStart_toEndOf="@+id/textView"
+                app:layout_constraintTop_toTopOf="@+id/textView"
+                app:srcCompat="@drawable/ic_expand_more_black" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/devider_3" />
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/appBarLayout"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:descendantFocusability="blocksDescendants">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_home_ad"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/vp_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tl_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/vp_home"
+                    app:tabBackground="@drawable/selector_dot_indicator"
+                    app:tabGravity="center"
+                    app:tabIndicatorHeight="0dp" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_home_select_tab"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toBottomOf="@id/cl_home_ad">
+
+                <TextView
+                    android:id="@+id/tv_orderbyrate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="11dp"
+                    android:layout_marginLeft="11dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="2dp"
+                    android:fontFamily="@font/applesdgothicneor"
+
+                    android:paddingTop="10dp"
+                    android:paddingEnd="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="9dp"
+                    android:text="@string/orderbyrate"
+                    android:textColor="@color/selector_orderby"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/devider_1"
+                    android:layout_width="1dp"
+                    android:layout_height="7dp"
+                    android:background="@color/orderbyunselected"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_orderbyrate"
+                    app:layout_constraintStart_toEndOf="@id/tv_orderbyrate"
+                    app:layout_constraintTop_toTopOf="@id/tv_orderbyrate" />
+
+                <TextView
+                    android:id="@+id/tv_orderbydistance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginRight="1dp"
+                    android:fontFamily="@font/applesdgothicneor"
+                    android:paddingStart="5dp"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="6dp"
+                    android:paddingRight="6dp"
+                    android:paddingBottom="9dp"
+                    android:text="@string/orderbydistance"
+                    android:textColor="@color/selector_orderby"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_orderbyrate"
+                    app:layout_constraintStart_toEndOf="@id/devider_1"
+                    app:layout_constraintTop_toTopOf="@id/tv_orderbyrate" />
+
+                <View
+                    android:id="@+id/devider_2"
+                    android:layout_width="1dp"
+                    android:layout_height="7dp"
+                    android:background="@color/orderbyunselected"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_orderbyrate"
+                    app:layout_constraintStart_toEndOf="@id/tv_orderbydistance"
+                    app:layout_constraintTop_toTopOf="@id/tv_orderbyrate" />
+
+                <TextView
+                    android:id="@+id/tv_orderbyreview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:fontFamily="@font/applesdgothicneor"
+                    android:paddingStart="5dp"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="6dp"
+                    android:paddingRight="6dp"
+                    android:paddingBottom="9dp"
+                    android:text="@string/orderbyreview"
+                    android:textColor="@color/selector_orderby"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_orderbyrate"
+                    app:layout_constraintStart_toEndOf="@id/devider_2"
+                    app:layout_constraintTop_toTopOf="@id/tv_orderbyrate" />
+
+
+                <Button
+                    android:id="@+id/btn_mylocation"
+                    android:layout_width="58dp"
+                    android:layout_height="29dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:background="@drawable/an_my_local_btn"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_orderbyrate"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tv_orderbyrate" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:id="@+id/devider_3"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/colorDeviderHorizontal"
+                app:layout_constraintTop_toBottomOf="@id/cl_home_select_tab" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_shop"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toBottomOf="@id/devider_3" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 
     <Button
         android:id="@+id/fab_filter"
