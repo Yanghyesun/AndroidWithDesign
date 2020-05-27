@@ -9,7 +9,9 @@ import android.view.ViewGroup
 /**
  * A simple [Fragment] subclass.
  */
+
 class MangoFragment : Fragment() {
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -18,5 +20,6 @@ class MangoFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_mango, container, false)
     }
+
 
 }

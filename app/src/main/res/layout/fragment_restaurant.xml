@@ -1,14 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RestaurantFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="맛집 찾기 화면" />
+        android:id="@+id/tv_orderbyrate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:layout_marginLeft="11dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginBottom="2dp"
+        android:fontFamily="@font/applesdgothicneor"
 
-</FrameLayout>
+        android:paddingTop="10dp"
+        android:paddingEnd="5dp"
+        android:paddingRight="5dp"
+        android:paddingBottom="9dp"
+        android:text="@string/orderbyrate"
+        android:textColor="@color/selector_orderby"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/devider_1"
+        android:layout_width="1dp"
+        android:layout_height="7dp"
+        android:background="@color/orderbyunselected"
+        app:layout_constraintBottom_toBottomOf="@id/tv_orderbyrate"
+        app:layout_constraintStart_toEndOf="@id/tv_orderbyrate"
+        app:layout_constraintTop_toTopOf="@id/tv_orderbyrate" />
+
+    <TextView
+        android:id="@+id/tv_orderbydistance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginRight="1dp"
+        android:fontFamily="@font/applesdgothicneor"
+        android:paddingStart="5dp"
+        android:paddingLeft="5dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="6dp"
+        android:paddingRight="6dp"
+        android:paddingBottom="9dp"
+        android:text="@string/orderbydistance"
+        android:textColor="@color/selector_orderby"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/tv_orderbyrate"
+        app:layout_constraintStart_toEndOf="@id/devider_1"
+        app:layout_constraintTop_toTopOf="@id/tv_orderbyrate" />
+
+    <View
+        android:id="@+id/devider_2"
+        android:layout_width="1dp"
+        android:layout_height="7dp"
+        android:background="@color/orderbyunselected"
+        app:layout_constraintBottom_toBottomOf="@id/tv_orderbyrate"
+        app:layout_constraintStart_toEndOf="@id/tv_orderbydistance"
+        app:layout_constraintTop_toTopOf="@id/tv_orderbyrate" />
+
+    <TextView
+        android:id="@+id/tv_orderbyreview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="1dp"
+        android:fontFamily="@font/applesdgothicneor"
+        android:paddingStart="5dp"
+        android:paddingLeft="5dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="6dp"
+        android:paddingRight="6dp"
+        android:paddingBottom="9dp"
+        android:text="@string/orderbyreview"
+        android:textColor="@color/selector_orderby"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/tv_orderbyrate"
+        app:layout_constraintStart_toEndOf="@id/devider_2"
+        app:layout_constraintTop_toTopOf="@id/tv_orderbyrate" />
+
+
+    <Button
+        android:id="@+id/btn_mylocation"
+        android:layout_width="58dp"
+        android:layout_height="29dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/an_my_local_btn"
+        app:layout_constraintBottom_toBottomOf="@id/tv_orderbyrate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_orderbyrate" />
+
+
+    <View
+        android:id="@+id/devider_3"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="41dp"
+        android:background="@color/colorDeviderHorizontal"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_shop"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/devider_3" />
+
+    <Button
+        android:id="@+id/fab_filter"
+        android:layout_width="81dp"
+        android:layout_height="36dp"
+        android:layout_marginBottom="11dp"
+        android:background="@drawable/an_floating_filter_btn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
