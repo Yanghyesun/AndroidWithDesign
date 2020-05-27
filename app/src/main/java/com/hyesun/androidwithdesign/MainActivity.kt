@@ -1,9 +1,15 @@
 package com.hyesun.androidwithdesign
 
-import androidx.appcompat.app.AppCompatActivity
+
 import android.os.Bundle
-import androidx.viewpager.widget.ViewPager
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
+import androidx.viewpager.widget.ViewPager
+
+
 
 class MainActivity : AppCompatActivity() {
 
