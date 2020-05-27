@@ -37,6 +37,7 @@ class RestaurantFragment : Fragment() {
 
         setUI()
 
+        setAdvertiseViewpager()
 
         val data = mutableListOf<ShopData>()
         data.apply {
@@ -119,5 +120,9 @@ class RestaurantFragment : Fragment() {
         return displayMetrics.widthPixels
     }
 
-
+    private fun setAdvertiseViewpager(){
+        vp_home.adapter = RestaurantAdvertiseAdapter(childFragmentManager,4)
+        vp_home.offscreenPageLimit = 3
+        tl_home.setupWithViewPager(vp_home)
+    }
 }
