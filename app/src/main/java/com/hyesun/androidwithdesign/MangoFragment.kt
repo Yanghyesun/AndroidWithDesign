@@ -19,12 +19,9 @@ import kotlinx.android.synthetic.main.fragment_mango.*
 
 class MangoFragment : Fragment() {
 
-<<<<<<< HEAD
-=======
     lateinit var eatdealAdapter: EatdealAdapter
     lateinit var layoutManager: LinearLayoutManager
     val datas : MutableList<EatdealData> = mutableListOf<EatdealData>()
->>>>>>> dahye
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,9 +49,6 @@ class MangoFragment : Fragment() {
         //데이터를 임의로 생성하고 어댑터에 전달해주겠습니다!
     }
 
-<<<<<<< HEAD
-
-=======
     private fun initRcv(view : View) {
         eatdealAdapter = EatdealAdapter(view.context)
         rv_eatdeal.adapter = eatdealAdapter
@@ -123,6 +117,5 @@ class MangoFragment : Fragment() {
         eatdealAdapter.notifyDataSetChanged()
         //데이터가 갱신되었음을 Adapter에게 알려주는 역할
     }
->>>>>>> dahye
 }
 
