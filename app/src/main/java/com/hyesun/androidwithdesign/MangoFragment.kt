@@ -40,9 +40,9 @@ class MangoFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val fragmentAdapter = PagerAdapter(getActivity()!!.supportFragmentManager)
-        fragmentAdapter.addFragment("EAT딜",EatdealFragment())
-        fragmentAdapter.addFragment("망고픽 스토리",MpickstoryFragment())
-        fragmentAdapter.addFragment("TOP 리스트",ToplistFragment())
+        fragmentAdapter.addFragment("EAT딜", EatdealFragment())
+        fragmentAdapter.addFragment("망고픽 스토리", MpickstoryFragment())
+        fragmentAdapter.addFragment("TOP 리스트", ToplistFragment())
         viewpager_main.adapter = fragmentAdapter
 
         viewpager_main.addOnPageChangeListener( TabLayout.TabLayoutOnPageChangeListener(tabs_main))

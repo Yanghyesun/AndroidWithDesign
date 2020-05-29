@@ -51,6 +51,7 @@ class EatdealFragment : Fragment() {
     private fun loadDatas() {
         datas.apply {
             add(EatdealData(
+                scrap = true,
                 percent = "15%",
                 name = "탐복 현대백화점 신촌점",
                 menu = "구이반상",
@@ -61,6 +62,7 @@ class EatdealFragment : Fragment() {
             ))
 
             add(EatdealData(
+                scrap = false,
                 percent = "31%",
                 name = "비밀시그니쳐 현대백화...",
                 menu = "고르곤졸라 피자",
@@ -71,6 +73,7 @@ class EatdealFragment : Fragment() {
             ))
 
             add(EatdealData(
+                scrap = false,
                 percent = "31%",
                 name = "비밀시그니쳐 현대백화...",
                 menu = "까르보나라",
@@ -81,6 +84,7 @@ class EatdealFragment : Fragment() {
             ))
 
             add(EatdealData(
+                scrap = false,
                 percent = "29%",
                 name = "송 현대백화점 신촌점",
                 menu = "쟁반 메밀정식",
@@ -91,6 +95,7 @@ class EatdealFragment : Fragment() {
             ))
 
             add(EatdealData(
+                scrap = false,
                 percent = "24%",
                 name = "정육점 불고기 현대백화...",
                 menu = "한우불고기 솥밥 세트",
