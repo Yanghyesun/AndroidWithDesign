@@ -12,7 +12,7 @@ import com.bumptech.glide.Glide
 
 const val MIN_NUM = 30
 
-class recyclerShopAdapter(private val context: Context, private val standardx : Int) :
+class recyclerShopAdapter(private val context: Context, private val standardx: Int) :
     RecyclerView.Adapter<recyclerShopAdapter.VHolder>() {
 
 
@@ -27,7 +27,7 @@ class recyclerShopAdapter(private val context: Context, private val standardx : 
         notifyDataSetChanged()
     }
 
-    fun replaceShops(list : MutableList<ShopData>){
+    fun replaceShops(list: MutableList<ShopData>) {
         shopList.clear()
         shopList.addAll(list)
         notifyDataSetChanged()
@@ -63,8 +63,8 @@ class recyclerShopAdapter(private val context: Context, private val standardx : 
         fun setHolder(item: ShopData, position: Int, context: Context, standardx: Int) {
 
             val layoutParams = itemView.layoutParams
-            layoutParams.width = (standardx* 0.433).toInt()
-            layoutParams.height = (standardx*0.563).toInt()
+            layoutParams.width = (standardx * 0.433).toInt()
+            layoutParams.height = (standardx * 0.563).toInt()
 
             Glide.with(itemView).load(item.Image).error(R.drawable.ic_launcher_background)
                 .into(shopImage)
@@ -75,9 +75,9 @@ class recyclerShopAdapter(private val context: Context, private val standardx : 
             menu.text = item.menu
             rate.text = item.rate.toString()
 
-            if (item.eatdeal){
+            if (item.eatdeal) {
                 eatdeal.visibility = View.VISIBLE
-            } else{
+            } else {
                 eatdeal.visibility = View.GONE
             }
 
@@ -92,20 +92,30 @@ class recyclerShopAdapter(private val context: Context, private val standardx : 
             scrapimage.setOnClickListener {
 //                state 바꿔서 색깔 바꾸고, 데이터도 바꾸기
                 if (it.isSelected) {
-                    it.isSelected= false
+                    it.isSelected = false
                     item.scrap = false
+
                 } else if (!it.isSelected) {
                     it.isSelected = true
                     item.scrap = true
                 }
 
+                RetrofitService.service.shopScrap(
+                    ShopScrapRequest(
+                        restaruantIdx = item.id,
+                        name = item.name,
+                        scrap = item.scrap
+                    )
+                )
+
             }
         }
-        private fun convertDistance(distance : Float): String{
-            if (distance > 1000){
-                return (distance/1000).toString()+"km"
+
+        private fun convertDistance(distance: Int): String {
+            return if (distance > 1000) {
+                (distance / 1000).toString() + "km"
             } else {
-                return distance.toInt().toString()+"m"
+                distance.toString() + "m"
             }
         }
     }

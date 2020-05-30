@@ -1,8 +1,10 @@
 package com.hyesun.androidwithdesign
 
 import retrofit2.Call
+import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.PUT
 
 interface RequestInterface {
 
@@ -26,4 +28,9 @@ interface RequestInterface {
     fun requestEatDealScrap(
 
     ):Call<ResponseEatdealScrap>
+
+    //맛집찾기 scrap
+    @PUT("/restaurant/scrap")
+    fun shopScrap(@Body body: ShopScrapRequest
+    ):Call<ShopResponse>
 }

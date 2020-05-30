@@ -45,19 +45,18 @@ class RestaurantFragment : Fragment() {
         loadShop()
 
 
-        data.apply {
-            add(ShopData("우동쯔요시",R.drawable.an_list_img_01, false, 4.7.toFloat(), "하남시", 240.toFloat(), "메멜 set, 코돈부르 set", 231,true))
-            add(ShopData("빠네렌토", R.drawable.an_list_img_02 ,true, 3.8.toFloat(), "강동구", 2870.toFloat(), "촉촉한 초코칩, 단팥빵", 42))
-            add(ShopData("카페수요일",  R.drawable.an_list_img_03_cafe_null, true, 4.0.toFloat(), "하남시", 740.toFloat(), "아이스아메리카노, 카푸치노", 53))
-            add(ShopData("소나무집",  R.drawable.an_list_img_04, false, 4.0.toFloat(), "하남시", 300.toFloat(), "오리백숙, 누룽지백숙", 23))
-            add(ShopData("유주얼",  R.drawable.an_list_img_05, false, 4.2.toFloat(), "하남시", 40.toFloat(), "바닐라라떼, 쿠키, 초코칩", 82))
-            add(ShopData("카페웨더",  R.drawable.an_list_img_06, false, 4.9.toFloat(), "하남시", 2100.toFloat(), "크루와상, 딸기당근케이크", 57,true))
-            add(ShopData("긴타코",  R.drawable.an_list_img_07,false, 3.9.toFloat(), "하남시", 990.toFloat(), "매콤 타코야끼, 달달 set", 93))
-            add(ShopData("504b로스터리",  R.drawable.an_list_img_08, false, 4.0.toFloat(), "강동구", 4400.toFloat(), "플랫화이트, 수박에이드", 72))
-            add(ShopData("계란빵집",  R.drawable.an_list_img_9, true, 3.3.toFloat(), "하남시", 1550.toFloat(), "계란빵", 13))
-            add(ShopData("피자집",  R.drawable.an_list_img_10, false, 3.6.toFloat(), "하남시",638.toFloat(), "피자", 10))
-
-        }
+//        data.apply {
+//            add(ShopData("우동쯔요시",R.drawable.an_list_img_01, false, 4.7.toFloat(), "하남시", 240.toFloat(), "메멜 set, 코돈부르 set", 231,true))
+//            add(ShopData("빠네렌토", R.drawable.an_list_img_02 ,true, 3.8.toFloat(), "강동구", 2870.toFloat(), "촉촉한 초코칩, 단팥빵", 42))
+//            add(ShopData("카페수요일",  R.drawable.an_list_img_03_cafe_null, true, 4.0.toFloat(), "하남시", 740.toFloat(), "아이스아메리카노, 카푸치노", 53))
+//            add(ShopData("소나무집",  R.drawable.an_list_img_04, false, 4.0.toFloat(), "하남시", 300.toFloat(), "오리백숙, 누룽지백숙", 23))
+//            add(ShopData("유주얼",  R.drawable.an_list_img_05, false, 4.2.toFloat(), "하남시", 40.toFloat(), "바닐라라떼, 쿠키, 초코칩", 82))
+//            add(ShopData("카페웨더",  R.drawable.an_list_img_06, false, 4.9.toFloat(), "하남시", 2100.toFloat(), "크루와상, 딸기당근케이크", 57,true))
+//            add(ShopData("긴타코",  R.drawable.an_list_img_07,false, 3.9.toFloat(), "하남시", 990.toFloat(), "매콤 타코야끼, 달달 set", 93))
+//            add(ShopData("504b로스터리",  R.drawable.an_list_img_08, false, 4.0.toFloat(), "강동구", 4400.toFloat(), "플랫화이트, 수박에이드", 72))
+//            add(ShopData("계란빵집",  R.drawable.an_list_img_9, true, 3.3.toFloat(), "하남시", 1550.toFloat(), "계란빵", 13))
+//            add(ShopData("피자집",  R.drawable.an_list_img_10, false, 3.6.toFloat(), "하남시",638.toFloat(), "피자", 10))
+//        }
 
         rv_shop.layoutManager = GridLayoutManager(context, 2, RecyclerView.VERTICAL, false)
         rv_shop.addItemDecoration(ShopItemDecoration(getX()))
@@ -140,7 +139,18 @@ class RestaurantFragment : Fragment() {
             }
 
             override fun onResponse(call: Call<ShopResponse>, response: Response<ShopResponse>) {
-                TODO("Not yet implemented")
+                response.body()?.let {
+                    if (it.status == 200){
+                        if (it.success){
+                            val shops = it.data
+                            rvAdapter.addShop(shops.orderShops(ORDERBYRATE))
+                        }
+
+                    }
+                } ?: run {
+                    response.errorBody()
+//                    통신실패
+                }
             }
         })
     }
