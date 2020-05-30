@@ -1,5 +1,6 @@
 package com.hyesun.androidwithdesign
 
+import android.graphics.Paint
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -37,6 +38,7 @@ class EatdealViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         tv_region.text = eatdealData.region
         tv_menu.text = eatdealData.menu
         tv_originPrice.text = eatdealData.origin_price
+        tv_originPrice.setPaintFlags(tv_originPrice.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG)
         tv_discountPrice.text = eatdealData.discount_price
         Glide.with(itemView).load(eatdealData.img_contents).into(img_contents)
     }
