@@ -10,6 +10,9 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.fragment_restaurant.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 /**
  * A simple [Fragment] subclass.
@@ -24,6 +27,8 @@ class RestaurantFragment : Fragment() {
 
     private val rvAdapter by lazy {recyclerShopAdapter(requireContext(),getX())}
 
+    private val data = mutableListOf<ShopData>()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -36,10 +41,10 @@ class RestaurantFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setUI()
-
         setAdvertiseViewpager()
+        loadShop()
 
-        val data = mutableListOf<ShopData>()
+
         data.apply {
             add(ShopData("우동쯔요시",R.drawable.an_list_img_01, false, 4.7.toFloat(), "하남시", 240.toFloat(), "메멜 set, 코돈부르 set", 231,true))
             add(ShopData("빠네렌토", R.drawable.an_list_img_02 ,true, 3.8.toFloat(), "강동구", 2870.toFloat(), "촉촉한 초코칩, 단팥빵", 42))
@@ -121,8 +126,22 @@ class RestaurantFragment : Fragment() {
     }
 
     private fun setAdvertiseViewpager(){
-        vp_home.adapter = RestaurantAdvertiseAdapter(childFragmentManager,4)
-        vp_home.offscreenPageLimit = 3
+        vp_home.run {
+            adapter = RestaurantAdvertiseAdapter(childFragmentManager,4)
+            offscreenPageLimit = 3
+        }
         tl_home.setupWithViewPager(vp_home)
+    }
+
+    private fun loadShop(){
+        RetrofitService.service.loadShop().enqueue(object : Callback<ShopResponse>{
+            override fun onFailure(call: Call<ShopResponse>, t: Throwable) {
+                TODO("Not yet implemented")
+            }
+
+            override fun onResponse(call: Call<ShopResponse>, response: Response<ShopResponse>) {
+                TODO("Not yet implemented")
+            }
+        })
     }
 }
