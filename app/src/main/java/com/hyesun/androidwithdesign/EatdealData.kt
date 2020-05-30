@@ -1,6 +1,5 @@
 package com.hyesun.androidwithdesign
 
-import android.graphics.drawable.Drawable
 
 data class EatdealData (
     var scrap : Boolean,

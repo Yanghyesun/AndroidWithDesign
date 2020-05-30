@@ -1,6 +1,9 @@
 package com.hyesun.androidwithdesign
-
-import android.net.Uri
+data class ShopResponse(
+    val status: Boolean,
+    val message: String,
+    val data: ShopData
+)
 
 data class ShopData(
     var name : String,

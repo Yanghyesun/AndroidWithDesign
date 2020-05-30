@@ -62,7 +62,6 @@ class recyclerShopAdapter(private val context: Context, private val standardx : 
 
         fun setHolder(item: ShopData, position: Int, context: Context, standardx: Int) {
 
-
             val layoutParams = itemView.layoutParams
             layoutParams.width = (standardx* 0.433).toInt()
             layoutParams.height = (standardx*0.563).toInt()
