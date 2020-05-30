@@ -201,7 +201,7 @@
         android:letterSpacing="0.05"
         android:lineSpacingExtra="3sp"
         android:textColor="#ffffff"
-        android:textSize="13dp"
+        android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="@+id/img_orange"
         app:layout_constraintEnd_toEndOf="@+id/img_orange"
         app:layout_constraintHorizontal_bias="1.0"
